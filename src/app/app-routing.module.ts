@@ -11,6 +11,22 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'manager',
+    loadChildren: () => import('./manager/manager.module').then( m => m.ManagerPageModule)
+  },
+  {
+    path: 'history',
+    loadChildren: () => import('./history/history.module').then( m => m.HistoryPageModule)
+  },
+  {
+    path: 'restock',
+    loadChildren: () => import('./restock/restock.module').then( m => m.RestockPageModule)
+  },
+  {
+    path: 'historydetails',
+    loadChildren: () => import('./historydetails/historydetails.module').then( m => m.HistorydetailsPageModule)
+  },
 ];
 
 @NgModule({

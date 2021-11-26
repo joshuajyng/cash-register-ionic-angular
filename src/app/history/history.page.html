@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-back-button text="Back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>History Items</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-list style="overflow-y: scroll;">
+    <ion-item *ngFor="let item of historyItems" button (click)="itemSelected(item)">
+      <ion-label>{{item.name}} <h2>{{item.quantity}}</h2></ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

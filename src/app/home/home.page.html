@@ -1,20 +1,131 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title class="ion-text-center"> 
+      Cash Register App
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" scrollY="false">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large"></ion-title>
     </ion-toolbar>
   </ion-header>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-label id="itemName">{{selectedItem}}</ion-label>
+      </ion-col>
+      <ion-col>
+       
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" color="danger" [routerLink]="['/manager']">
+          Manager
+        </ion-button>
+      </ion-col>
+      <ion-col>
+      
+      </ion-col>
+    </ion-row>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="numClick(1)">
+          1
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="numClick(2)">
+          2
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="numClick(3)">
+          3
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-label id="itemCost">{{totalPrice}}</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="numClick(4)">
+          4
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="numClick(5)">
+          5
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="numClick(6)">
+          6
+        </ion-button> 
+      </ion-col>
+      <ion-col>
+     
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="numClick(7)">
+          7
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="numClick(8)">
+          8
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="numClick(9)">
+          9
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="primary" size="large" (click)="buyProd()">
+          BUY
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-row>
+    <ion-col>
+      
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="numClick(0)">
+        0
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="clearQuantity()">
+        Clear
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-label id="totalPrice"> {{currQuantity}}</ion-label>
+     
+    </ion-col>
+  </ion-row>
+
+  <ion-list style="overflow-y: scroll; height: 400px">
+    <ion-item *ngFor="let prod of productList" button (click)="itemSelected(prod)">
+      <ion-label>{{prod.name}} <h2>{{prod.price}}</h2></ion-label>
+      <h2>{{prod.quantity}}</h2>
+    </ion-item>
+
+  </ion-list>
 </ion-content>

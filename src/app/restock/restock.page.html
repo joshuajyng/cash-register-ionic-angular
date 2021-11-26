@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-back-button text="Back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Restock</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #form="ngForm"(ngSubmit)="onSubmit(form)" novalidate>
+    <ion-input placeholder="Enter new quantity" [(ngModel)]="restockItem.quantity" name="restockItem"></ion-input>
+    <section>
+      <button type="submit" ion-button>Restock</button>
+      <button (click)="cancel()" type="button" ion-button>Cancel</button>
+    </section>
+  </form>
+ 
+
+  <ion-list style="overflow-y: scroll; height: 400px">
+    <ion-item *ngFor="let prod of productList" button (click)="itemSelected(prod)">
+      <ion-label>{{prod.name}} </ion-label>
+      <h2>{{prod.quantity}}</h2>
+    </ion-item>
+
+  </ion-list>
+  
+</ion-content>
